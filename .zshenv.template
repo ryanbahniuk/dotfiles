@@ -1,0 +1,29 @@
+# GitHub
+export GITHUB_TOKEN=<your-github-token>
+export GITHUB_MCP_PAT=<your-github-mcp-pat>
+export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_TOKEN
+
+# 1Password SSH Agent
+export SSH_AUTH_SOCK=<your-1pass-ssh-sock>
+
+# Artifactory
+export ARTIFACTORY_READ_USER=<your-username>
+export ARTIFACTORY_READ_TOKEN=<your-artifactory-token>
+export ARTIFACTORY_NPM_AUTH=$(echo -n "$ARTIFACTORY_READ_USER:$ARTIFACTORY_READ_TOKEN" | base64)
+export POETRY_HTTP_BASIC_ARTIFACTORY_USERNAME="$ARTIFACTORY_READ_USER"
+export POETRY_HTTP_BASIC_ARTIFACTORY_PASSWORD="$ARTIFACTORY_READ_TOKEN"
+export PIP_EXTRA_INDEX_URL="https://$ARTIFACTORY_READ_USER:$ARTIFACTORY_READ_TOKEN@chime.jfrog.io/artifactory/api/pypi/python-pypi-local/simple"
+
+# LocalStack
+export LOCALSTACK_AUTH_TOKEN=<your-localstack-token>
+
+# Bundler auth
+export BUNDLE_GITHUB__COM="$GITHUB_TOKEN:x-oauth-basic"
+export BUNDLE_CHIME__JFROG__IO="$ARTIFACTORY_READ_USER:$ARTIFACTORY_READ_TOKEN"
+
+# Paths
+export WORK_DIR_PATH=~/Code
+export LOCAL_GEM_PATH=$WORK_DIR_PATH
+
+# Architecture detection
+export ARCH="$(test "$(uname -m)" = "arm64" && echo "M1" || echo "Intel")"
