@@ -26,7 +26,7 @@ augroup SyntaxSettings
 augroup end
 
 " =============== Plugin Options ===============
-set rtp+=/opt/homebrew/bin/fzf
+set rtp+=/opt/homebrew/opt/fzf
 let g:CommandTMaxHeight = 15
 let g:CommandTMatchWindowAtTop = 1
 let g:CommandTCancelMap = ['<ESC>', '<C-c>']
