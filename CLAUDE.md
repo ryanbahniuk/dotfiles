@@ -68,27 +68,12 @@ ln -sf ~/Code/dotfiles/.vimrc ~/.vimrc
 
 ### 5. Set up environment variables
 
-Copy the template and fill in your actual values:
-
-```bash
-cp ~/Code/dotfiles/.zshenv.template ~/.zshenv
-```
-
-Then edit `~/.zshenv` and replace the placeholder values:
-
-| Variable | Description |
-|----------|-------------|
-| `GITHUB_TOKEN` | GitHub personal access token |
-| `GITHUB_MCP_PAT` | GitHub MCP personal access token |
-| `ARTIFACTORY_READ_USER` | Artifactory username |
-| `ARTIFACTORY_READ_TOKEN` | Artifactory API token |
-| `LOCALSTACK_AUTH_TOKEN` | LocalStack auth token |
-| `SSH_AUTH_SOCK` | 1Password SSH agent socket |
-
-The template also configures:
-- Artifactory auth for npm, pip, poetry, and bundler
-- Work directory paths
-- Architecture detection (M1/Intel)
+There may already be a ~/.zshenv file.
+1. If it exists, merge the values from .zshenv.template to it, but keep the existing values as higher priority. Ask the user to fill in any values that you cannot resolve.
+2. If it does not exist, copy the template and ask the user to fill in each value.
+	```bash
+	cp ~/Code/dotfiles/.zshenv.template ~/.zshenv
+	```
 
 ### 6. Set up Vim with Pathogen
 
